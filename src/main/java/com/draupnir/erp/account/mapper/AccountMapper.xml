@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.draupnir.erp.account.mapper.AccountMapper">
+
+	<select id="findOne" parameterType="java.lang.Long"
+		resultType="com.draupnir.erp.account.model.Account">
+		select
+		*
+		from
+		acc_account
+		where id=#{id}
+	</select>
+
+	<update id="update" parameterType="com.draupnir.erp.account.model.Account">
+		update
+		acc_account
+		set
+		username = #{username},
+		password = #{password},
+		accountNonExpired=#{accountNonExpired},
+		accountNonLocked=#{accountNonLocked},
+		credentialsNonExpired=#{credentialsNonExpired},
+		registrationDate=#{registrationDate},
+		lastLogin=#{lastLogin}
+
+		where id =
+		#{id}
+	</update>
+
+
+	<!-- ==== Following are special methods ===== -->
+
+
+	<insert id="register" parameterType="com.draupnir.erp.account.model.Account"
+		flushCache="true" statementType="PREPARED" keyProperty="id" keyColumn=""
+		useGeneratedKeys="true" timeout="20">
+		<!-- 
+		<selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER">
+			SELECT LAST_INSERT_ID(); 
+		</selectKey>
+		-->
+		INSERT INTO 
+		acc_account
+		(username, password, account_non_expired, account_non_locked,
+		credentials_non_expired, registration_date)
+		VALUES
+		(#{username}, #{password}, #{accountNonExpired}, #{accountNonLocked},
+		#{credentialsNonExpired}, #{registrationDate})
+	</insert>
+
+</mapper>
