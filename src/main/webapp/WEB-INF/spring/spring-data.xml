@@ -24,7 +24,7 @@
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		init-method="init" destroy-method="close">
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/dpndb?useUnicode=true&amp;characterEncoding=UTF-8" />
+			value="jdbc:mysql://localhost:3306/draupnir_erp?useUnicode=true&amp;characterEncoding=UTF-8" />
 		<property name="username">
 			<value>root</value>
 		</property>

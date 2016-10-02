@@ -7,9 +7,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>DraupnirERP</name>
 	<url>http://maven.apache.org</url>
-	
-	
-
 
 	<repositories>
 		<repository>
@@ -44,7 +41,6 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 
 	<dependencies>
 		<dependency>
